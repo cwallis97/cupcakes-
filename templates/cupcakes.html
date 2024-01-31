@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupcake Store</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        .cupcake-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        h4 {
+            color: #555;
+        }
+
+        b {
+            color: #e44d26;
+        }
+    </style>
+</head>
+<body>
+    <h1>ONE STOP CUPCAKE SHOP</h1>
+
+    {% for cupcake in cupcakes %}
+        <div class="cupcake-card">
+            <h3>{{ cupcake.name }}</h3>
+            <h4>Flavor: {{ cupcake.flavor }}</h4>
+            <h4>Frosting: {{ cupcake.frosting }}</h4>
+            <h4><b>Price: ${{ cupcake.price }}</b></h4>
+
+            {% if cupcake.size %}
+                <h4>Size: {{ cupcake.size }}</h4>
+            {% endif %}
+
+            {% if cupcake.sprinkles %}
+                <h4>Sprinkles: {{ cupcake.sprinkles }}</h4>
+            {% endif %}
+
+            {% if cupcake.filling %}
+                <h4>Filling: {{ cupcake.filling }}</h4>
+            {% endif %}
+        </div>
+    {% endfor %}
+</body>
+</html>

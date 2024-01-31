@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Cupcake</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .cupcake-details {
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #e44d26;
+        }
+
+        h4 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .cupcake-image {
+            margin-top: 20px;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            color: #e44d26;
+        }
+    </style>
+</head>
+<body>
+    <div class="cupcake-details">
+        <h2>{{ cupcake["name"] }}</h2>
+        <h4>Flavor: {{ cupcake["flavor"] }}</h4>
+        <h4>Frosting: {{ cupcake["frosting"] }}</h4>
+        <h4><b>Price: ${{ cupcake["price"] }}</b></h4>
+
+        {% if "size" in cupcake %}
+            <h4>Size: {{ cupcake["size"] }}</h4>
+        {% endif %}
+
+        {% if "sprinkles" in cupcake %}
+            <h4>Sprinkles: {{ cupcake["sprinkles"] }}</h4>
+        {% endif %}
+
+        {% if "filling" in cupcake %}
+            <h4>Filling: {{ cupcake["filling"] }}</h4>
+        {% endif %}
+
+        <p>Indulge in the delightful experience of our {{ cupcake["name"] }} cupcake. Perfectly crafted with love and the finest ingredients.</p>
+
+        <div class="cupcake-image">
+         
+        </div>
+
+        <a href="{{ url_for('home') }}" class="back-link">Back to Cupcakes</a>
+    </div>
+</body>
+</html>

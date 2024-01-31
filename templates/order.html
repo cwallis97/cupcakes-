@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .order-summary {
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #e44d26;
+        }
+
+        h4 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .cupcake-list {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            color: #e44d26;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-summary">
+        <h2>Your Cupcake Order</h2>
+
+        {% if cupcakes %}
+            <div class="cupcake-list">
+                <h4>Ordered Cupcakes:</h4>
+                <ul>
+                    {% for cupcake in cupcakes %}
+                        <li>{{ cupcake["name"] }} - ${{ cupcake["price"] }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p>No cupcakes in your order yet.</p>
+        {% endif %}
+
+        <a href="{{ url_for('home') }}" class="back-link">Back to Cupcakes</a>
+    </div>
+</body>
+</html>
